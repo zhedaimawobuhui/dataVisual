@@ -1,22 +1,14 @@
-import csv
-from datetime import datetime
-
+import pandas as pd
 from matplotlib import pyplot as plt
 
 filename = 'data/sitka_weather_2018_simple.csv'
-with open(filename) as f:
-    reader = csv.reader(f)
-    header_row = next(reader)
+# 读文件
+data = pd.read_csv(filename,parse_dates = ['DATE'])
 
-    # Get dates, and high and low temperatures from this file.
-    dates, highs, lows = [], [], []
-    for row in reader:
-        current_date = datetime.strptime(row[2], '%Y-%m-%d')
-        high = int(row[5])
-        low = int(row[6])
-        dates.append(current_date)
-        highs.append(high)
-        lows.append(low)
+# 传入数据
+dates = data["DATE"]
+highs = data["TMAX"]
+lows = data["TMIN"]
 
 # Plot the high and low temperatures.
 plt.style.use('seaborn')

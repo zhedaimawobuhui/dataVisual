@@ -1,26 +1,33 @@
 import csv
 from datetime import datetime
-
+import pandas as pd
 from matplotlib import pyplot as plt
 
 filename = 'data/death_valley_2018_simple.csv'
-with open(filename) as f:
-    reader = csv.reader(f)
-    header_row = next(reader)
+data = pd.read_csv(filename,error_bad_lines=False,parse_dates = ['DATE'])
 
-    # Get dates, and high and low temperatures from this file.
-    dates, highs, lows = [], [], []
-    for row in reader:
-        current_date = datetime.strptime(row[2], '%Y-%m-%d')
-        try:
-            high = int(row[4])
-            low = int(row[5])
-        except ValueError:
-            print(f"Missing data for {current_date}")
-        else:
-            dates.append(current_date)
-            highs.append(high)
-            lows.append(low)
+# 传入数据
+dates = data["DATE"]
+highs = data["TMAX"]
+lows = data["TMIN"]
+
+# with open(filename) as f:
+#     reader = csv.reader(f)
+#     header_row = next(reader)
+#
+#     # Get dates, and high and low temperatures from this file.
+#     dates, highs, lows = [], [], []
+#     for row in reader:
+#         current_date = datetime.strptime(row[2], '%Y-%m-%d')
+#         try:
+#             high = int(row[4])
+#             low = int(row[5])
+#         except ValueError:
+#             print(f"Missing data for {current_date}")
+#         else:
+#             dates.append(current_date)
+#             highs.append(high)
+#             lows.append(low)
 
 # Plot the high and low temperatures.
 plt.style.use('seaborn')
