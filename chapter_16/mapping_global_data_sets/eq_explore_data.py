@@ -5,6 +5,7 @@ with open(filename) as f:
     all_eq_data = json.load(f)
 all_eq_dicts = all_eq_data['features']
 mags, titles, lons, lats = [], [], [], []
+
 for eq_dict in all_eq_dicts:
     mag = eq_dict['properties']['mag']
     title = eq_dict['properties']['title']

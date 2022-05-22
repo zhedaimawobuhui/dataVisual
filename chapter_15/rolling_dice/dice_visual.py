@@ -18,8 +18,10 @@ frequencies = [ results.count(value) for value in range(2, max_result+1)]
     
 # Visualize the results.
 x_values = list(range(2, max_result+1))
+# 画线
 data = [Bar(x=x_values, y=frequencies)]
 
+# 设置图象信息
 x_axis_config = {'title': 'Result', 'dtick': 1}
 y_axis_config = {'title': 'Frequency of Result'}
 my_layout = Layout(title='Results of rolling two D6 dice 1000 times',
