@@ -3,13 +3,13 @@ import requests
 from plotly.graph_objs import Bar
 from plotly import offline
 
-# Make an API call and store the response.
+# 进行 API 调用并存储响应。
 url = 'https://api.github.com/search/repositories?q=language:python&sort=stars'
 headers = {'Accept': 'application/vnd.github.v3+json'}
 r = requests.get(url, headers=headers)
 print(f"Status code: {r.status_code}")
 
-# Process results.
+# 处理结果。
 response_dict = r.json()
 repo_dicts = response_dict['items']
 repo_links, stars, labels = [], [], []
@@ -27,7 +27,7 @@ for repo_dict in repo_dicts:
     labels.append(label)
 
 
-# Make visualization.
+# 进行可视化。
 data = [{
     'type': 'bar',
     'x': repo_links,

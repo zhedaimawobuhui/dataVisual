@@ -3,20 +3,20 @@ from plotly import offline
 
 from die import Die
 
-# Create two D6 dice.
+# 创建两个 D6 骰子。
 die_1 = Die()
 die_2 = Die()
 
-# Make some rolls, and store results in a list.
+# 做一些投掷，并将结果存储在列表中。
 results = [die_1.roll() + die_2.roll() for roll_num in range(1000)]
 
     
-# Analyze the results.
+# 分析结果
 max_result = die_1.num_sides + die_2.num_sides
 frequencies = [ results.count(value) for value in range(2, max_result+1)]
 
     
-# Visualize the results.
+# 将结果可视化
 x_values = list(range(2, max_result+1))
 # 画线
 data = [Bar(x=x_values, y=frequencies)]

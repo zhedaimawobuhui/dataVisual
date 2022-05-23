@@ -10,14 +10,14 @@ dates = data["Date"]
 highs = data["Max_TemperatureC"]
 lows = data["Min_TemperatureC"]
 
-# Plot the high and low temperatures.
+# 绘制高温和低温。
 plt.style.use('seaborn')
 fig, ax = plt.subplots()
 ax.plot(dates, highs, c='red', alpha=0.5)
 ax.plot(dates, lows, c='blue', alpha=0.5)
 plt.fill_between(dates, highs, lows, facecolor='blue', alpha=0.1)
 
-# Format plot.
+# 格式化绘图。
 plt.title("2015 seattle high and low temperatures - 2018", fontsize=24)
 plt.xlabel('', fontsize=16)
 fig.autofmt_xdate()

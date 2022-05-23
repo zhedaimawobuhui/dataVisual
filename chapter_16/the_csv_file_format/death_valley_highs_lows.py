@@ -31,7 +31,7 @@ lows = data["TMIN"]
 #             highs.append(high)
 #             lows.append(low)
 
-# Plot the high and low temperatures.
+# 绘制高温和低温。
 # 传入数据，画出曲线
 plt.style.use('seaborn')
 fig, ax = plt.subplots()

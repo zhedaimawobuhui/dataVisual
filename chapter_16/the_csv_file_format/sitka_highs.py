@@ -8,13 +8,12 @@ filename = 'data/sitka_weather_2018_simple.csv'
 # 读取文件
 data = pd.read_csv(filename,parse_dates = ['DATE'])
 
-# Plot the high temperatures.
+# # 绘制高温和低温。
 plt.style.use('seaborn')
 fig, ax = plt.subplots()
 ax.plot(data["DATE"], data["TMAX"], c='red')
 
-# Format plot.
-#对图片格式进行调整
+# 格式化绘图。
 plt.title("Daily high temperatures - 2018", fontsize=24)
 plt.xlabel('', fontsize=16)
 fig.autofmt_xdate()

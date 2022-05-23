@@ -3,19 +3,21 @@ from plotly import offline
 
 from die import Die
 
-# Create a D6.
+# 创建一个 D6。
 die = Die()
 
-# Make some rolls, and store results in a list.
+# 做一些投掷，并将结果存储在列表中。
 results = [die.roll() for roll_num in range(1000)]
 
-# Analyze the results.
+# 分析结果
 frequencies = [results.count(value) for value in range(1, die.num_sides+1)]
 
-# Visualize the results.
+# 可视化结果
 x_values = list(range(1, die.num_sides+1))
+#画线
 data = [Bar(x=x_values, y=frequencies)]
 
+# 设置图形样式
 x_axis_config = {'title': 'Result'}
 y_axis_config = {'title': 'Frequency of Result'}
 my_layout = Layout(title='Results of rolling one D6 1000 times',
